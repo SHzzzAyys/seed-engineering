@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>种子轮工程化 · AI-Built DataRoom System</title>
+<meta name="description" content="把种子轮融资从手艺活变成工程活 · AI 协作 + 22 文档 DataRoom 体系 · 已在 GLP-1 和 PCOS 两个赛道验证">
+<meta property="og:title" content="种子轮工程化 · AI-Built DataRoom System">
+<meta property="og:description" content="把种子轮融资从手艺活变成工程活 · 22 文档 / 1 天产出 / 78% 跨赛道复用">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+<style>
+  :root {
+    --bg: #0a0d14;
+    --bg-card: #141822;
+    --bg-elev: #1c2131;
+    --border: #252b3d;
+    --accent: #ffd700;
+    --accent-soft: rgba(255, 215, 0, 0.08);
+    --text: #ecf0f5;
+    --text-muted: #8b94a8;
+    --ok: #4ecdc4;
+    --warn: #ff9f55;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.65;
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Layout ── */
+  .page { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10, 13, 20, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  nav .inner { display: flex; justify-content: space-between; align-items: center; max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  nav .logo { font-weight: 700; font-size: 16px; }
+  nav .logo span { color: var(--accent); }
+  nav .menu { display: flex; gap: 24px; font-size: 13px; }
+  nav .menu a { color: var(--text-muted); }
+  nav .menu a:hover { color: var(--text); text-decoration: none; }
+  nav .cta { background: var(--accent); color: #000;
+    padding: 7px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+  nav .cta:hover { text-decoration: none; opacity: 0.9; }
+  @media (max-width: 700px) { nav .menu { display: none; } }
+
+  /* ── Hero ── */
+  .hero { padding: 80px 0 64px; text-align: center; }
+  .hero .badge {
+    display: inline-block; background: var(--accent-soft);
+    color: var(--accent); padding: 5px 14px; border-radius: 14px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 42px; font-weight: 800; line-height: 1.2;
+    letter-spacing: -1px; margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .subtitle {
+    font-size: 17px; color: var(--text-muted); max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .hero .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: #000;
+    padding: 13px 26px; border-radius: 8px;
+    font-weight: 600; font-size: 14px;
+    display: inline-block; cursor: pointer; border: none;
+  }
+  .btn-primary:hover { opacity: 0.92; text-decoration: none; }
+  .btn-secondary {
+    background: transparent; color: var(--text);
+    padding: 12px 24px; border-radius: 8px;
+    font-weight: 600; font-size: 14px;
+    border: 1px solid var(--border);
+    display: inline-block; cursor: pointer;
+  }
+  .btn-secondary:hover { background: var(--bg-card); text-decoration: none; }
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 15px; }
+  }
+
+  /* ── Social Proof Stats ── */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .stat-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 16px; text-align: center;
+  }
+  .stat-val { font-size: 28px; font-weight: 800; color: var(--accent); }
+  .stat-lbl { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ── Section ── */
+  .section-title {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--accent); margin-bottom: 14px;
+  }
+  .section-h2 {
+    font-size: 30px; font-weight: 700; line-height: 1.3;
+    letter-spacing: -0.5px; margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 16px; color: var(--text-muted); max-width: 720px; margin-bottom: 36px;
+  }
+
+  /* ── Cases ── */
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .case-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px; transition: border-color 0.2s;
+  }
+  .case-card:hover { border-color: var(--accent); }
+  .case-tag {
+    display: inline-block; background: var(--accent-soft); color: var(--accent);
+    padding: 3px 10px; border-radius: 10px;
+    font-size: 11px; font-weight: 600; margin-bottom: 12px;
+  }
+  .case-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .case-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .case-meta { margin-top: 14px; font-size: 12px; color: var(--text-muted); display: flex; gap: 14px; }
+  .case-meta span { color: var(--ok); }
+  @media (max-width: 700px) { .case-grid { grid-template-columns: 1fr; } }
+
+  /* ── SKUs ── */
+  .sku-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .sku-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 26px; position: relative;
+  }
+  .sku-card.featured { border-color: var(--accent); }
+  .sku-card.featured::before {
+    content: "热门"; position: absolute; top: -10px; right: 20px;
+    background: var(--accent); color: #000; font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 10px;
+  }
+  .sku-num { color: var(--accent); font-size: 12px; font-weight: 700; }
+  .sku-title { font-size: 18px; font-weight: 700; margin: 4px 0 10px; }
+  .sku-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; min-height: 60px; }
+  .sku-price { font-size: 22px; font-weight: 800; color: var(--accent); margin-bottom: 14px; }
+  .sku-price small { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  .sku-features { list-style: none; font-size: 13px; line-height: 1.9; color: var(--text); }
+  .sku-features li::before { content: "✓"; color: var(--ok); margin-right: 8px; font-weight: 700; }
+  .sku-cta {
+    display: inline-block; margin-top: 18px; padding: 10px 18px;
+    border: 1px solid var(--accent); color: var(--accent);
+    border-radius: 6px; font-size: 13px; font-weight: 600;
+  }
+  .sku-cta:hover { background: var(--accent); color: #000; text-decoration: none; }
+  @media (max-width: 700px) { .sku-grid { grid-template-columns: 1fr; } }
+
+  /* ── About ── */
+  .about-row { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start; }
+  .about-text p { margin-bottom: 14px; color: var(--text); font-size: 15px; }
+  .about-text p strong { color: var(--accent); }
+  .about-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px;
+  }
+  .about-card h4 { font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 12px; }
+  .about-card ul { list-style: none; font-size: 13px; line-height: 2; }
+  .about-card ul li::before { content: "→"; color: var(--accent); margin-right: 8px; }
+  @media (max-width: 700px) { .about-row { grid-template-columns: 1fr; } }
+
+  /* ── Contact ── */
+  .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .contact-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 26px; text-align: center;
+  }
+  .contact-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .contact-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+  .contact-card .placeholder {
+    background: var(--bg-elev); padding: 20px;
+    border-radius: 8px; color: var(--text-muted); font-size: 12px;
+    border: 1px dashed var(--border);
+  }
+  @media (max-width: 700px) { .contact-row { grid-template-columns: 1fr; } }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center; padding: 32px 0;
+    color: var(--text-muted); font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="inner">
+    <div class="logo">种子轮<span>工程化</span></div>
+    <div class="menu">
+      <a href="#cases">案例</a>
+      <a href="#services">服务</a>
+      <a href="#about">关于</a>
+    </div>
+    <a href="#contact" class="cta">预约对话</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="page">
+    <div class="badge">AI × SEED ROUND × DATAROOM</div>
+    <h1>把种子轮融资<br>从"手艺活"变成<span class="accent">"工程活"</span></h1>
+    <p class="subtitle">AI 协作 + 22 文档 DataRoom 系统 · 内部数字自洽 · 跨赛道可迁移<br>已在 GLP-1 / PCOS 数字健康两个赛道验证</p>
+    <div class="cta-row">
+      <a href="#services" class="btn-primary">查看服务</a>
+      <a href="#cases" class="btn-secondary">先看案例</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-val">22</div>
+        <div class="stat-lbl">尽调文档 / 1 天产出</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">78%</div>
+        <div class="stat-lbl">模板跨赛道复用率</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">7</div>
+        <div class="stat-lbl">GLP-1 公司全景拆解</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">97%</div>
+        <div class="stat-lbl">AI 安全测试通过率</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASES ── -->
+<section id="cases">
+  <div class="page">
+    <div class="section-title">已完成案例 · 公开可验证</div>
+    <h2 class="section-h2">把"BP 制作"变成可复制的工作流</h2>
+    <p class="section-lead">三个实战样本，覆盖完整 DataRoom 构建、跨赛道模板迁移、反向投资标的评估。</p>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-tag">案例 1 · 完整 DataRoom</div>
+        <div class="case-title">GLP-1 数字健康 · 种子轮 BP</div>
+        <div class="case-desc">22 文档 · 中英双版本 BP · 含财务模型 / 压力测试 / 临床安全护栏 / AI 安全验证报告。覆盖 8 大类 VC DD 清单。</div>
+        <div class="case-meta">
+          <span>● 1 天产出</span>
+          <span>● 内部数字自洽</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-tag">案例 2 · 跨赛道迁移</div>
+        <div class="case-title">PCOS 数字陪伴 · 模板复用</div>
+        <div class="case-desc">用同一套 DataRoom 框架，3 小时迁移到 PCOS（多囊卵巢综合征）赛道。验证 78% 内容可直接复用。</div>
+        <div class="case-meta">
+          <span>● 3 小时</span>
+          <span>● 78% 复用率</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-tag">案例 3 · 反向评估</div>
+        <div class="case-title">GLP-1 赛道全景 · 7 家公司拆解</div>
+        <div class="case-desc">Hims · Noom · Nourish · Simple · Calibrate · Found · Embla。每家按 DataRoom 8 大类反向填写，输出威胁矩阵与战略含义。</div>
+        <div class="case-meta">
+          <span>● 7 公司</span>
+          <span>● 含 HTML 可视化</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES / SKU ── -->
+<section id="services">
+  <div class="page">
+    <div class="section-title">商业化服务 · 4 个 SKU</div>
+    <h2 class="section-h2">从轻到重，按你的阶段选择</h2>
+    <p class="section-lead">所有服务都基于已验证的 DataRoom 方法论体系，按交付重量分四档。</p>
+
+    <div class="sku-grid">
+      <!-- SKU 1 -->
+      <div class="sku-card featured">
+        <div class="sku-num">SKU 01</div>
+        <div class="sku-title">1v1 DataRoom 诊断 / 陪跑</div>
+        <div class="sku-desc">为准备种子轮的创始人提供 BP / DataRoom 的诊断、修改建议或 4 周陪跑搭建。</div>
+        <div class="sku-price">¥3,000<small> 起 · 诊断版</small></div>
+        <ul class="sku-features">
+          <li>2 小时一对一诊断对话</li>
+          <li>书面审阅报告（含 10+ 改进建议）</li>
+          <li>陪跑版本：4 周完整 DataRoom 搭建</li>
+          <li>陪跑版本：¥10,000-¥30,000</li>
+        </ul>
+        <a href="#contact" class="sku-cta">预约对话 →</a>
+      </div>
+
+      <!-- SKU 2 -->
+      <div class="sku-card">
+        <div class="sku-num">SKU 02</div>
+        <div class="sku-title">"种子轮工程化"付费社群</div>
+        <div class="sku-desc">每周深度方法论 + 案例库 + 月度 AMA。适合长期关注创业方法论沉淀的人。</div>
+        <div class="sku-price">¥299<small> / 年（早鸟 ¥199）</small></div>
+        <ul class="sku-features">
+          <li>每周 1 篇深度方法论文章</li>
+          <li>所有案例库访问（GLP-1 / PCOS / 后续）</li>
+          <li>月度 AMA + 创始人问答</li>
+          <li>入会赠送：投资评估 SOP 全文</li>
+        </ul>
+        <a href="#contact" class="sku-cta">加入社群 →</a>
+      </div>
+
+      <!-- SKU 3 -->
+      <div class="sku-card">
+        <div class="sku-num">SKU 03</div>
+        <div class="sku-title">DataRoom 模板包（数字商品）</div>
+        <div class="sku-desc">22 份脱敏模板 + 财务模型 Excel + AI 协作 prompt 全套。买完即用，零门槛。</div>
+        <div class="sku-price">¥499<small> · 基础版 / ¥999 · 高级版</small></div>
+        <ul class="sku-features">
+          <li>22 份 DataRoom 模板（Markdown + Notion）</li>
+          <li>财务脆弱性 4 场景 Excel 模板</li>
+          <li>22 文档的 AI 生成 prompt 全套</li>
+          <li>跨赛道迁移示范（GLP-1 → PCOS）</li>
+        </ul>
+        <a href="#contact" class="sku-cta">下载模板包 →</a>
+      </div>
+
+      <!-- SKU 4 -->
+      <div class="sku-card">
+        <div class="sku-num">SKU 04</div>
+        <div class="sku-title">投资标的尽调外包</div>
+        <div class="sku-desc">为天使投资人 / 早期 VC / LP 提供按公司付费的快速尽调评估。</div>
+        <div class="sku-price">¥1,500<small> 起 / 单 · Quick 版</small></div>
+        <ul class="sku-features">
+          <li>Quick（30 min）¥1,500 · 一页摘要</li>
+          <li>Standard（3 hr）¥5,000 · 完整报告</li>
+          <li>Deep（2-3 天）¥15,000 · 含可视化</li>
+          <li>使用已验证的 7 步评估 SOP</li>
+        </ul>
+        <a href="#contact" class="sku-cta">提交标的 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="page">
+    <div class="section-title">关于这件事</div>
+    <h2 class="section-h2">为什么这套方法论独特</h2>
+
+    <div class="about-row">
+      <div class="about-text">
+        <p>大部分人用 AI 写 BP 失败，是因为他们让 AI 做<strong>创意决策</strong>——AI 最不擅长的事。</p>
+        <p>正确的方法是：先用 2 小时写一份<strong>详细的"施工图"</strong>（每个文档的字数目标、章节结构、关键数字），然后让 Claude / Codex 按图填充。</p>
+        <p>这套方法在两个赛道（GLP-1 + PCOS）跑通后，我意识到它本身有独立价值——既能"自己写 BP 用"，也能"反向评估别人公司用"。</p>
+        <p>我把这套方法包装成了 4 个商业化服务，价格从 ¥299 到 ¥30,000 不等。<strong>不卖虚的——所有交付都有公开可验证的样本。</strong></p>
+      </div>
+
+      <div class="about-card">
+        <h4>价值主张</h4>
+        <ul>
+          <li>内部数字自洽（不翻车）</li>
+          <li>结构对齐主流 VC DD</li>
+          <li>可跨赛道迁移（验证 78%）</li>
+          <li>可反向使用（DD 框架）</li>
+          <li>所有方法论开源可看</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="page">
+    <div class="section-title">开始对话</div>
+    <h2 class="section-h2">三种方式联系</h2>
+    <p class="section-lead">付费服务从邮件 / 微信开始，正式合作前会有 15-30 分钟免费对齐。</p>
+
+    <div class="contact-row">
+      <div class="contact-card">
+        <h4>📧 邮件预约</h4>
+        <p>1v1 咨询 / 模板包 / 尽调外包</p>
+        <div class="placeholder">【填入邮箱地址】</div>
+      </div>
+      <div class="contact-card">
+        <h4>💬 微信</h4>
+        <p>付费社群 / 长期关注</p>
+        <div class="placeholder">【填入微信二维码图片】</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 36px; font-size: 13px; color: var(--text-muted);">
+      或在以下平台关注 ·
+      <a href="#">小红书</a> ·
+      <a href="#">即刻</a> ·
+      <a href="#">X (Twitter)</a> ·
+      <a href="#">Substack</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 · 种子轮工程化 · <a href="https://github.com/SHzzzAyys/seed-engineering">GitHub Portfolio</a>
+</footer>
+
+</body>
+</html>
