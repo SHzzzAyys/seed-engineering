@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>种子轮工程化 · AI-Built DataRoom System</title>
-<meta name="description" content="把种子轮融资从手艺活变成工程活 · AI 协作 + 22 文档 DataRoom 体系 · 已在 GLP-1 和 PCOS 两个赛道验证">
-<meta property="og:title" content="种子轮工程化 · AI-Built DataRoom System">
-<meta property="og:description" content="把种子轮融资从手艺活变成工程活 · 22 文档 / 1 天产出 / 78% 跨赛道复用">
+<title>种子轮工程化 — AI 辅助融资 DataRoom 系统</title>
+<meta name="description" content="把种子轮融资从手艺活变成工程活。AI 辅助 DataRoom 系统，22 份文档模板，双语商业计划书，适合种子轮到 Pre-A 阶段创业者。">
+<meta property="og:title" content="种子轮工程化">
+<meta property="og:description" content="AI 辅助种子轮 DataRoom，22 份模板，78% 复用率">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
@@ -195,6 +195,49 @@
   }
   @media (max-width: 700px) { .contact-row { grid-template-columns: 1fr; } }
 
+  /* ── FAQ Accordion ── */
+  .faq-section { margin-top: 48px; }
+  .faq-section h3 {
+    font-size: 20px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px;
+  }
+  .faq-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; margin-bottom: 10px; overflow: hidden;
+  }
+  .faq-item input[type="checkbox"] { display: none; }
+  .faq-item label {
+    cursor: pointer; display: block; padding: 14px 18px;
+    font-weight: 600; font-size: 14px; color: var(--text);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.15s;
+  }
+  .faq-item label:hover { background: var(--bg-elev); }
+  .faq-item label::after { content: "+"; color: var(--accent); font-size: 18px; font-weight: 400; flex-shrink: 0; margin-left: 12px; }
+  .faq-item input:checked ~ label::after { content: "−"; }
+  .faq-item .faq-answer { display: none; padding: 0 18px 14px; color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+  .faq-item input:checked ~ .faq-answer { display: block; }
+
+  /* ── Contact Form ── */
+  .contact-form {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px; margin-top: 20px;
+  }
+  .contact-form h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .contact-form p { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+  .contact-form input[type="text"],
+  .contact-form textarea {
+    width: 100%; background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 7px; padding: 10px 14px; color: var(--text); font-size: 14px;
+    font-family: inherit; resize: vertical; margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .contact-form input[type="text"]:focus,
+  .contact-form textarea:focus {
+    outline: none; border-color: var(--accent);
+  }
+  .contact-form input[type="text"]::placeholder,
+  .contact-form textarea::placeholder { color: var(--text-muted); }
+
   /* ── Footer ── */
   footer {
     text-align: center; padding: 32px 0;
@@ -213,6 +256,7 @@
     <div class="menu">
       <a href="#cases">案例</a>
       <a href="#services">服务</a>
+      <a href="#faq">FAQ</a>
       <a href="#about">关于</a>
     </div>
     <a href="#contact" class="cta">预约对话</a>
@@ -363,6 +407,34 @@
   </div>
 </section>
 
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="page">
+    <div class="section-title">常见问题</div>
+    <h2 class="section-h2">你可能想问的</h2>
+
+    <div class="faq-section">
+      <div class="faq-item">
+        <input type="checkbox" id="faq1">
+        <label for="faq1">AI 工具能替代专业顾问吗？</label>
+        <div class="faq-answer">不能完全替代，但能大幅降低"整理 + 结构化"的人力成本。顾问的价值在于判断和人脉，AI 工具的价值在于流程标准化。</div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq2">
+        <label for="faq2">模板适合哪个阶段？</label>
+        <div class="faq-answer">主要针对种子轮（天使后）到 Pre-A 阶段，融资金额在 100 万～1000 万人民币区间。A 轮及以上建议配合专业 FA。</div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq3">
+        <label for="faq3">如何确认质量？</label>
+        <div class="faq-answer">所有模板均来自真实 DataRoom 脱敏案例，并经过 AI 安全测试（幻觉检测通过率 97%）。提供 3 天无理由退款。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── ABOUT ── -->
 <section id="about">
   <div class="page">
@@ -402,21 +474,34 @@
       <div class="contact-card">
         <h4>📧 邮件预约</h4>
         <p>1v1 咨询 / 模板包 / 尽调外包</p>
-        <div class="placeholder">【填入邮箱地址】</div>
+        <div class="placeholder">
+          <a href="mailto:phucvydang30@gmail.com" style="color: var(--accent); font-size: 14px; font-weight: 600;">phucvydang30@gmail.com</a>
+        </div>
       </div>
       <div class="contact-card">
         <h4>💬 微信</h4>
         <p>付费社群 / 长期关注</p>
-        <div class="placeholder">【填入微信二维码图片】</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">微信：扫码添加（二维码待上传）</div>
+        <div style="width: 100px; height: 100px; border: 1px dashed #ccc; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999; margin: 0 auto;">二维码</div>
       </div>
+    </div>
+
+    <div class="contact-form">
+      <h4>✉️ 快速咨询</h4>
+      <p>填写后点击发送，将通过邮件直接联系（约 24 小时内回复）</p>
+      <form action="mailto:phucvydang30@gmail.com" method="get" enctype="text/plain">
+        <input type="text" name="subject" placeholder="你的融资阶段和行业（如：Pre-seed · 消费医疗）" required>
+        <textarea name="body" placeholder="简述你的情况（100字以内）：产品阶段、当前挑战、希望获得的帮助" rows="3" required></textarea>
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-family: inherit;">发送咨询</button>
+      </form>
     </div>
 
     <div style="text-align: center; margin-top: 36px; font-size: 13px; color: var(--text-muted);">
       或在以下平台关注 ·
-      <a href="#">小红书</a> ·
-      <a href="#">即刻</a> ·
-      <a href="#">X (Twitter)</a> ·
-      <a href="#">Substack</a>
+      <a href="mailto:phucvydang30@gmail.com">小红书</a> ·
+      <a href="mailto:phucvydang30@gmail.com">即刻</a> ·
+      <a href="https://x.com/SHzzzAyys" target="_blank" rel="noopener">X (Twitter)</a> ·
+      <a href="mailto:phucvydang30@gmail.com">Substack</a>
     </div>
   </div>
 </section>
